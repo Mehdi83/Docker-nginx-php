@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  nginx:
+    build: ./nginx/
+    image: nginx:av3
+    container_name: m_nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./html/:/usr/share/nginx/html/
+
+
+  php:
+    image: php:fpm-alpine
+    container_name: m_php
+    volumes:
+      - ./html/:/usr/share/nginx/html/
